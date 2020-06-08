@@ -318,6 +318,9 @@ class Firm:
             raise ValueError
         if client in self.clients:
             raise ValueError
+        if len(self.brokers) == 0:
+            input('No brokers!')
+            return
         self.clients.append(client)
         broker = min(self.brokers, key=lambda br: br.congestion)
         self._division[client] = broker
